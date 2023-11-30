@@ -33,14 +33,15 @@
             android:text="@string/votre_partenaire_de_confiance"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="10dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="UnknownIdInLayout" />
+
 
         <ImageView
             android:id="@+id/imageViewToAnotherPage"
@@ -53,7 +54,34 @@
             android:src="@drawable/pneu1"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="34dp" />
+
+
+        <ImageView
+            android:id="@+id/iconView"
+            android:layout_width="106dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="132dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="handleIconClick"
+            android:src="@drawable/baseline_all_inclusive_24"
+            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintTop_toTopOf="@+id/imageViewToAnotherPage" />
+
+        <TextView
+            android:id="@+id/textViewBelowIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/catalogue"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iconView"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="@+id/iconView"
+            app:layout_constraintTop_toBottomOf="@+id/iconView"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textViewBelowImage"
@@ -67,9 +95,11 @@
             app:layout_constraintHorizontal_bias="0.355"
             app:layout_constraintStart_toStartOf="@+id/imageViewToAnotherPage"
             app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.545" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.core.widget.NestedScrollView>

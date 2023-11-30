@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -89,32 +89,47 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
+
     <EditText
-        android:id="@+id/editText2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
-        android:hint="@string/password"
-        android:textColorHint="@color/black"
+        android:hint="@string/adresse_mail"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editText"
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:backgroundTint="#CCCCCC"
+        android:drawablePadding="13dp"
+        android:hint="@string/password"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:layout_constraintWidth_percent=".8"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="164dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/phone_number"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editText"
@@ -124,22 +139,7 @@
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
-        android:backgroundTint="#CCCCCC"
-        android:drawablePadding="13dp"
-        android:hint="@string/cin_num"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText"
-        app:layout_constraintWidth_percent=".8"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="208dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/adresse"
