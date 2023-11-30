@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">AutopneuTest</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="autopneus">AutoPneus</string>
+    <string name="votre_partenaire_de_confiance">Votre partenaire de confiance</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="full_name">Full Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="cin">CIN</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="cin_num">CIN</string>
+    <string name="se_connecter1">Se connecter</string>
+    <string name="pas_inscrit">Pas inscrit?</string>
+    <string name="catalog" />
+    <string name="catalog1">Catalog</string>
+    <string name="favourite">Favourite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_cart">My Cart</string>
+    <string name="email_gmail_com">email@gmail.com</string>
+    <string name="s_t_c">S T C</string>
+    <string name="adresse">Adresse</string>
+    <string name="se_connecter_en_tant_qu_admin">Se connecter en tant qu\'Admin</string>
+    <string name="bienvenue_sur_la_page_d_acceuil">Bienvenue Sur La Page d\'Acceuil</string>
+    <string name="rendez_vous">Rendez-vous</string>
+    <string name="calendrier">Calendrier</string>
+    <string name="d_ja_inscrit">Déja inscrit ?</string>
+    <string name="catalogue">Catalogue</string>
+    <string name="mon_panier">Mon Panier</string>
+    <string name="favoris">Favoris</string>
+    <string name="rechercher">Rechercher</string>
+    <string name="select1">Marque</string>
+    <string name="select2">Modèle</string>
+    <string name="select3">Année</string>
+    <string name="rechercher1">Rechercher</string>
+    <string name="filtrer_par_v_hicule">Filtrer Par Véhicule</string>
+    <string name="hauteur">Hauteur</string>
+    <string name="largeur">Largeur</string>
+    <string name="diam_tre">Diamètre</string>
+    <string name="filtrer">Filtrer</string>
+
+</resources>

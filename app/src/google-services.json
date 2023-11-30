@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938514094531",
+    "project_id": "autopneus-e5875",
+    "storage_bucket": "autopneus-e5875.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938514094531:android:2d97a42dcae21e3819c576",
+        "android_client_info": {
+          "package_name": "com.example.autopneutest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbwXEu9No56Md5jKufFS_Kjam4Y7r4R2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
