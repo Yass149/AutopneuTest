@@ -56,6 +56,21 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="34dp" />
 
+        <ImageView
+            android:id="@+id/iconViewBelowImage"
+            android:layout_width="106dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="handleIconClick"
+            android:src="@drawable/baseline_favorite_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintVertical_bias="0.53"
+            tools:ignore="MissingConstraints" />
+
 
         <ImageView
             android:id="@+id/iconView"
@@ -98,8 +113,6 @@
             app:layout_constraintVertical_bias="0.545" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.core.widget.NestedScrollView>
