@@ -25,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText adresse_mail;
     private EditText adresse;
     private EditText phone_number;
-    private Button s_inscrire;
+    private Button register;
     private Button d_ja_inscrit;
     private Button se_connecter;
     private FirebaseAuth auth;
@@ -42,13 +42,13 @@ public class RegistrationActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         adresse = findViewById(R.id.adresse);
         phone_number = findViewById(R.id.phone_number);
-        s_inscrire = findViewById(R.id.s_inscrire);
+        register = findViewById(R.id.s_inscrire);
         d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
         se_connecter = findViewById(R.id.se_connecter);
 
         auth = FirebaseAuth.getInstance();
         //buttons mechanism
-        s_inscrire.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String txt_adresse_mail = adresse_mail.getText().toString();
