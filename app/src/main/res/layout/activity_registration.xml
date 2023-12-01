@@ -34,7 +34,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alfa_slab_one"
         android:layout_marginTop="-500dp"
         android:text="@string/s_inscrire"
         android:textAlignment="center"

@@ -83,7 +83,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                     finish(); // Close the RegistrationActivity
                 } else {
-                    Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
