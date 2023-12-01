@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     public void disconnect(View view) {
 
 
-
         Intent intent = new Intent(this, WelcomeActivity.class);
 
 
