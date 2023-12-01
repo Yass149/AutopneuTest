@@ -64,18 +64,19 @@ public class RegistrationActivity extends AppCompatActivity {
                         || TextUtils.isEmpty(txt_last_name) || TextUtils.isEmpty(txt_phone_number) || TextUtils.isEmpty(txt_username)
                         || TextUtils.isEmpty(txt_adresse)){
                     Toast.makeText(RegistrationActivity.this, "certains champs sont vides!", Toast.LENGTH_SHORT).show();
-                }else if (txt_password.length() < 6){
+                } else if (txt_password.length() < 6){
                     Toast.makeText(RegistrationActivity.this, "Le mot de passe est trop court!", Toast.LENGTH_SHORT).show();
-                } else if (txt_phone_number.length() < 10) {
+                } else if (txt_phone_number.length() < 10){
                     Toast.makeText(RegistrationActivity.this, "Le numéro de téléphone doit être composé de 10 chiffres !", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txt_adresse_mail, txt_password);
+                    registerUser(txt_adresse_mail, txt_password, txt_first_name, txt_last_name, txt_adresse,txt_phone_number, txt_username);
                 }
             }
         });
     }
 
-    private void registerUser(String adresse_mail, String password) {
+    private void registerUser(String adresse_mail, String password, String first_name,
+                              String last_name, String adresse, String phone_number, String username) {
         auth.createUserWithEmailAndPassword(adresse_mail , password).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

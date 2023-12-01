@@ -18,8 +18,8 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button register;
-    private Button login;
+    private Button s_inscrire;
+    private Button se_connecter;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        register =findViewById(R.id.register);
-        login =findViewById(R.id.login);
-        register.setOnClickListener(new View.OnClickListener() {
+        s_inscrire =findViewById(R.id.s_inscrire);
+        se_connecter =findViewById(R.id.se_connecter);
+        s_inscrire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this , RegistrationActivity.class));
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
+        se_connecter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this , LoginActivity.class));
