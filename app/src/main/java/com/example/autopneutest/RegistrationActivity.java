@@ -1,7 +1,7 @@
 package com.example.autopneutest;
 
-import static com.example.autopneutest.R.id.adresse_mail;
-
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button se_connecter;
     private FirebaseAuth auth;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,8 +82,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegistrationActivity.this, "Vous êtes inscrit avec succès!", Toast.LENGTH_SHORT).show();
                     // Navigate to MainActivity or any other activity
-                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-                    finish(); // Close the RegistrationActivity
                 } else {
                     Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
                 }
