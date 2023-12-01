@@ -27,7 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText phone_number;
     private Button register;
     private Button d_ja_inscrit;
-    private Button se_connecter;
+    private Button login;
     private FirebaseAuth auth;
 
     @SuppressLint("MissingInflatedId")
@@ -42,9 +42,9 @@ public class RegistrationActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         adresse = findViewById(R.id.adresse);
         phone_number = findViewById(R.id.phone_number);
-        register = findViewById(R.id.s_inscrire);
+        register = findViewById(R.id.register);
         d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
-        se_connecter = findViewById(R.id.se_connecter);
+        login = findViewById(R.id.login);
 
         auth = FirebaseAuth.getInstance();
         //buttons mechanism
