@@ -42,7 +42,7 @@ private FirebaseAuth auth;
         });
     }
 
-    private void loginUser(String adresse_mail, String password) {
+    public void loginUser(String adresse_mail, String password) {
         auth.signInWithEmailAndPassword(adresse_mail, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
@@ -65,4 +65,5 @@ private FirebaseAuth auth;
     public void login_admin(View view) {
         startActivity(new Intent(LoginActivity.this, LoginAdminActivity.class));
     }
+
 }
