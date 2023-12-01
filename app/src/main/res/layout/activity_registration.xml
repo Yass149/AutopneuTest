@@ -60,6 +60,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
@@ -91,6 +92,7 @@
 
 
     <EditText
+        android:id="@+id/editText4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
@@ -106,7 +108,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
@@ -122,6 +124,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/editText6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
@@ -137,6 +140,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/editText7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="208dp"
