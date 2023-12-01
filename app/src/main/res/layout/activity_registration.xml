@@ -192,6 +192,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="login"
         android:text="@string/se_connecter"
         android:textAlignment="center"
         android:textColor="@color/purple_500"
@@ -199,9 +200,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/register"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.463"
+        tools:ignore="UnknownIdInLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
