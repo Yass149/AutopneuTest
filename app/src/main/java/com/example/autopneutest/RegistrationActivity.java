@@ -75,9 +75,9 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String adresse_mail, String password, String first_name,
+    private void registerUser(String adressemail, String txtpassword, String first_name,
                               String last_name, String adresse, String phone_number, String username) {
-        auth.createUserWithEmailAndPassword(adresse_mail , password).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(adressemail , txtpassword).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
