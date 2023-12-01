@@ -47,19 +47,19 @@
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:background="@drawable/btn_bg_design"
-        android:onClick="register"
+        android:layout_marginBottom="100dp"
         android:padding="14dp"
         android:text="@string/s_inscrire"
         android:textAllCaps="false"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent=".8" />
+        android:textStyle="bold"
+        android:onClick="register"
+        app:layout_constraintWidth_percent=".8"
+        android:background="@drawable/btn_bg_design"/>
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
@@ -72,7 +72,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="login"
-       />
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
