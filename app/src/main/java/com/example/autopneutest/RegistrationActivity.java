@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class RegistrationActivity extends AppCompatActivity {
     private EditText first_name;
@@ -36,13 +37,13 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        adresse_mail = findViewById(R.id.adresse_mail);
-        password = findViewById(R.id.password);
         first_name = findViewById(R.id.first_name);
         last_name = findViewById(R.id.last_name);
         username = findViewById(R.id.username);
-        adresse = findViewById(R.id.adresse);
+        adresse_mail = findViewById(R.id.adresse_mail);
+        password = findViewById(R.id.password);
         phone_number = findViewById(R.id.phone_number);
+        adresse = findViewById(R.id.adresse);
         register = findViewById(R.id.register);
         d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
         se_connecter = findViewById(R.id.login);
@@ -82,6 +83,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegistrationActivity.this, "Vous êtes inscrit avec succès!", Toast.LENGTH_SHORT).show();
                     // Navigate to MainActivity or any other activity
+                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                    finish(); // Close the RegistrationActivity
                 } else {
                     Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
                 }

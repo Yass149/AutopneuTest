@@ -152,7 +152,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:onClick="mainActivity"
+        android:onClick="MainActivity"
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
