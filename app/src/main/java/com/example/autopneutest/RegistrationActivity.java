@@ -66,27 +66,26 @@ public class RegistrationActivity extends AppCompatActivity {
                 } else if (txt_password.length() < 6){
                     Toast.makeText(RegistrationActivity.this, "Le mot de passe est trop court!", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txt_adresse_mail, txt_password, txt_first_name, txt_last_name, txt_adresse,txt_phone_number, txt_username);
+                    registerUser(txt_adresse_mail, txt_password);
                 }
             }
         });
     }
 
-    private void registerUser(String adresse_mail, String password, String first_name,
-                              String last_name, String adresse, String phone_number, String username) {
+    private void registerUser(String adresse_mail, String password) {
         auth.createUserWithEmailAndPassword(adresse_mail, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@androidx.annotation.NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegistrationActivity.this, "Vous êtes inscrit avec succès!", Toast.LENGTH_SHORT).show();
                     // Navigate to MainActivity or any other activity
                     startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                     finish(); // Close the RegistrationActivity
                 } else {
-                    Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        } );
     }
 
 
