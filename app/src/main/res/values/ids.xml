@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="login" type="id" />
-    <item name="adresse_email" type="id" />
     <item name="password" type="id" />
     <item name="phone_number" type="id" />
     <item name="adresse" type="id" />
@@ -10,4 +9,5 @@
     <item name="first_name" type="id" />
     <item name="d_ja_inscrit" type="id" />
     <item name="register" type="id" />
+    <item name="adresse_mail" type="id" />
 </resources>
