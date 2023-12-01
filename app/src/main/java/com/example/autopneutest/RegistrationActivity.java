@@ -77,19 +77,21 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void registerUser(String adresse_mail, String password, String first_name,
                               String last_name, String adresse, String phone_number, String username) {
-        auth.createUserWithEmailAndPassword(adresse_mail , password).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(adresse_mail, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(RegistrationActivity.this, "\n" +
-                            "Vous êtes inscrit avec succès!", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(RegistrationActivity.this, "\n" +
-                            "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
+                if (task.isSuccessful()) {
+                    Toast.makeText(RegistrationActivity.this, "Vous êtes inscrit avec succès!", Toast.LENGTH_SHORT).show();
+                    // Navigate to MainActivity or any other activity
+                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                    finish(); // Close the RegistrationActivity
+                } else {
+                    Toast.makeText(RegistrationActivity.this, "échec de l'enregistrement!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
 
     public void login(View view) {
         startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
