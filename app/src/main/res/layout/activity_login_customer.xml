@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.206" />
 
     <Button
-        android:onClick="mainActivity"
+        android:onClick="login"
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
