@@ -9,5 +9,5 @@
     <item name="last_name" type="id" />
     <item name="first_name" type="id" />
     <item name="d_ja_inscrit" type="id" />
-    <item name="s_inscrire" type="id" />
+    <item name="register" type="id" />
 </resources>

@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_customer);
     }
 
-    public void s_inscrire(View view) {
+    public void register(View view) {
 
         startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
     }

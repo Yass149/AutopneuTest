@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        register =findViewById(R.id.s_inscrire);
+        register =findViewById(R.id.register);
         login =findViewById(R.id.login);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
