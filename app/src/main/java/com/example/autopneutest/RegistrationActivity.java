@@ -66,8 +66,6 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationActivity.this, "certains champs sont vides!", Toast.LENGTH_SHORT).show();
                 } else if (txt_password.length() < 6){
                     Toast.makeText(RegistrationActivity.this, "Le mot de passe est trop court!", Toast.LENGTH_SHORT).show();
-                } else if (txt_phone_number.length() < 10){
-                    Toast.makeText(RegistrationActivity.this, "Le numéro de téléphone doit être composé de 10 chiffres !", Toast.LENGTH_SHORT).show();
                 } else {
                     registerUser(txt_adresse_mail, txt_password, txt_first_name, txt_last_name, txt_adresse,txt_phone_number, txt_username);
                 }
