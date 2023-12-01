@@ -13,8 +13,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        android:contentDescription="@string/todo" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -50,7 +49,7 @@
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="256dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/first_name"
@@ -63,7 +62,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/last_name"
+        android:id="@+id/editText2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
@@ -77,12 +76,11 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
-
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/editText3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/username"
@@ -94,11 +92,12 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
+
     <EditText
-        android:id="@+id/adresse_mail"
+        android:id="@+id/editText4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="88dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/adresse_mail"
@@ -111,10 +110,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/editText5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="128dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/password"
@@ -127,10 +126,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/editText6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="164dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/phone_number"
@@ -143,10 +142,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/adresse"
+        android:id="@+id/editText7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="208dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/adresse"
@@ -159,7 +158,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:onClick="mainActivity"
+        android:onClick="MainActivity"
         android:id="@+id/register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
