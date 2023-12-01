@@ -36,6 +36,7 @@
             android:textStyle="bold"
             android:padding="15dp"
             android:onClick="disconnect"/>
-        
+
+
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

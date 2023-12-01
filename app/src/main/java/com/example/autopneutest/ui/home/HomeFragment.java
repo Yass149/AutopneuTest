@@ -19,7 +19,9 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ImageView imageViewToAnotherPage = view.findViewById(R.id.imageViewToAnotherPage);
+        ImageView imageViewToMyCart = view.findViewById(R.id.imageViewToMyCart);
         ImageView iconView = view.findViewById(R.id.iconView);
+
 
         imageViewToAnotherPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,12 +30,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        imageViewToMyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleCartIconClick();
+            }
+        });
+
         iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToCatalogFragment();
+                handleIconClick();
             }
         });
+
 
         return view;
     }
@@ -43,8 +53,15 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void navigateToCatalogFragment() {
+    private void handleIconClick() {
         NavHostFragment.findNavController(this)
-                .navigate(R.id.nav_catalog);
+                .navigate(R.id.action_home_to_catalog);
     }
+
+    private void handleCartIconClick() {
+        // Handle the click for the shopping cart icon
+        NavHostFragment.findNavController(this)
+                .navigate(R.id.action_home_to_my_cart);
+    }
+
 }

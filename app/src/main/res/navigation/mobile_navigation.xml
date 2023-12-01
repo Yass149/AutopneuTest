@@ -13,18 +13,25 @@
     <fragment
         android:id="@+id/nav_catalog"
         android:name="com.example.autopneutest.ui.gallery.CatalogFragment"
-        android:label="@string/catalog"
+        android:label="@string/catalogue"
         tools:layout="@layout/catalog_fragment" />
 
-    <fragment
-        android:id="@+id/nav_favourite"
-        android:name="com.example.autopneutest.ui.slideshow.FavouriteFragment"
-        android:label="@string/favourite"
-        tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/nav_my_cart"
         android:name="com.example.autopneutest.ui.MyCartFragment"
         android:label="@string/my_cart"
         tools:layout="@layout/fragment_my_cart" />
+
+    <action
+        android:id="@+id/action_home_to_catalog"
+        app:destination="@id/nav_catalog"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true"/>
+
+    <action
+        android:id="@+id/action_home_to_my_cart"
+        app:destination="@id/nav_my_cart"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true"/>
 
 </navigation>

@@ -22,4 +22,5 @@ public class CatalogFragment extends Fragment {
         return root;
 
     }
+
 }

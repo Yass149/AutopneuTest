@@ -15,7 +15,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="248dp"
+            android:layout_marginBottom="680dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="@string/autopneus"
             android:textAlignment="center"
@@ -45,47 +45,58 @@
 
         <ImageView
             android:id="@+id/imageViewToAnotherPage"
-            android:layout_width="116dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="160dp"
+            android:layout_width="159dp"
+            android:layout_height="94dp"
+            android:layout_marginTop="196dp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="searchForTiresActivity"
-            android:src="@drawable/pneu1"
+            android:src="@drawable/baseline_search_24"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="34dp" />
+            tools:layout_editor_absoluteX="16dp" />
 
         <ImageView
-            android:id="@+id/iconViewBelowImage"
-            android:layout_width="106dp"
-            android:layout_height="56dp"
+            android:id="@+id/imageViewToMyCart"
+            android:layout_width="155dp"
+            android:layout_height="98dp"
             android:layout_marginTop="4dp"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="handleIconClick"
-            android:src="@drawable/baseline_favorite_24"
+            android:onClick="handleCartIconClick"
+            android:src="@drawable/baseline_shopping_cart_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
             app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintVertical_bias="0.53"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintVertical_bias="0.36"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="25dp" />
 
+
+        <TextView
+            android:id="@+id/textViewBelowIcon1"
+            android:layout_width="103dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="148dp"
+            android:text="@string/mon_panier"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="DuplicateIds,MissingConstraints"
+            tools:layout_editor_absoluteX="65dp" />
 
         <ImageView
             android:id="@+id/iconView"
-            android:layout_width="106dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="132dp"
+            android:layout_width="122dp"
+            android:layout_height="113dp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="handleIconClick"
             android:src="@drawable/baseline_all_inclusive_24"
-            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintTop_toTopOf="@+id/imageViewToAnotherPage" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="273dp"
+            tools:layout_editor_absoluteY="248dp" />
 
         <TextView
-            android:id="@+id/textViewBelowIcon"
+            android:id="@+id/textViewBelowIcon2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -93,13 +104,17 @@
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iconView"
-            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="@+id/iconView"
             app:layout_constraintTop_toBottomOf="@+id/iconView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="DuplicateIds" />
+
+
+
 
         <TextView
-            android:id="@+id/textViewBelowImage"
+            android:id="@+id/textViewBelowImage3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -107,10 +122,10 @@
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintHorizontal_bias="0.355"
+            app:layout_constraintHorizontal_bias="0.562"
             app:layout_constraintStart_toStartOf="@+id/imageViewToAnotherPage"
             app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintVertical_bias="0.545" />
+            app:layout_constraintVertical_bias="0.054" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
