@@ -47,10 +47,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/first_name"
+        android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="240dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/first_name"
@@ -77,11 +77,12 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/username"
@@ -93,12 +94,11 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints" />
 
-
     <EditText
         android:id="@+id/adresse_mail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="100dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/adresse_mail"
@@ -114,7 +114,7 @@
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="148dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/password"
@@ -130,7 +130,7 @@
         android:id="@+id/phone_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="188dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/phone_number"
@@ -146,7 +146,7 @@
         android:id="@+id/adresse"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="236dp"
         android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
         android:hint="@string/adresse"
@@ -156,10 +156,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editText"
         app:layout_constraintWidth_percent=".8"
-        tools:ignore="MissingConstraints,UnknownId" />
+        tools:ignore="MissingConstraints" />
 
     <Button
-        android:onClick="MainActivity"
+        android:onClick="mainActivity"
         android:id="@+id/register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
