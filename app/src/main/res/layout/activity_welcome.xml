@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textStyle="bold"
-        android:onClick="se_connecter"
+        android:onClick="register"
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/btn_bg_design"/>
 
