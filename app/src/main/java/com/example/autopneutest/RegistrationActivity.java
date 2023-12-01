@@ -29,7 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button d_ja_inscrit;
     private Button se_connecter;
     private FirebaseAuth auth;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +45,8 @@ public class RegistrationActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
         d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
         se_connecter = findViewById(R.id.login);
-
         auth = FirebaseAuth.getInstance();
+
         //buttons mechanism
         register.setOnClickListener(new View.OnClickListener() {
             @Override
