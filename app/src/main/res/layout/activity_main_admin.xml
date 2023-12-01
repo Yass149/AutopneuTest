@@ -92,7 +92,8 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        android:onClick="seeAppointmentActivity">
+        android:onClick="seeAppointmentActivity"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:layout_width="48dp"

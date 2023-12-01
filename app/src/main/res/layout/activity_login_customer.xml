@@ -130,7 +130,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="register"
+        android:onClick="s_inscrire"
         android:text="@string/s_inscrire"
         android:textAlignment="center"
         android:textColor="@color/purple_500"
