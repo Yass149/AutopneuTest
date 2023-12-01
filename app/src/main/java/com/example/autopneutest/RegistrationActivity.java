@@ -69,14 +69,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 } else if (txt_phone_number.length() < 10) {
                     Toast.makeText(RegistrationActivity.this, "Le numéro de téléphone doit être composé de 10 chiffres !", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txt_adresse_mail, txt_password, txt_first_name, txt_last_name, txt_adresse,txt_phone_number, txt_username);
+                    registerUser(txt_adresse_mail, txt_password);
                 }
             }
         });
     }
 
-    private void registerUser(String adresse_mail, String password, String first_name,
-                              String last_name, String adresse, String phone_number, String username) {
+    private void registerUser(String adresse_mail, String password) {
         auth.createUserWithEmailAndPassword(adresse_mail , password).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
