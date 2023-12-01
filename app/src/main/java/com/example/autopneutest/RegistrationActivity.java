@@ -43,8 +43,6 @@ public class RegistrationActivity extends AppCompatActivity {
         adresse = findViewById(R.id.adresse);
         phone_number = findViewById(R.id.phone_number);
         register = findViewById(R.id.register);
-        d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
-        login = findViewById(R.id.login);
 
         auth = FirebaseAuth.getInstance();
         //buttons mechanism
@@ -53,31 +51,21 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String txt_adresse_mail = adresse_mail.getText().toString();
                 String txt_password = password.getText().toString();
-                String txt_first_name = first_name.getText().toString();
-                String txt_last_name = last_name.getText().toString();
-                String txt_username = username.getText().toString();
-                String txt_adresse = adresse.getText().toString();
-                String txt_phone_number = phone_number.getText().toString();
 
                 //if empty mechanism
-                if (TextUtils.isEmpty(txt_adresse_mail) || TextUtils.isEmpty(txt_password) || TextUtils.isEmpty(txt_first_name)
-                        || TextUtils.isEmpty(txt_last_name) || TextUtils.isEmpty(txt_phone_number) || TextUtils.isEmpty(txt_username)
-                        || TextUtils.isEmpty(txt_adresse)){
+                if (TextUtils.isEmpty(txt_adresse_mail) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(RegistrationActivity.this, "certains champs sont vides!", Toast.LENGTH_SHORT).show();
                 } else if (txt_password.length() < 6){
                     Toast.makeText(RegistrationActivity.this, "Le mot de passe est trop court!", Toast.LENGTH_SHORT).show();
-                } else if (txt_phone_number.length() < 10){
-                    Toast.makeText(RegistrationActivity.this, "Le numéro de téléphone doit être composé de 10 chiffres !", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txt_adresse_mail, txt_password, txt_first_name, txt_last_name, txt_adresse,txt_phone_number, txt_username);
+                    registerUser(txt_adresse_mail, txt_password);
                 }
             }
         });
     }
 
-    private void registerUser(String adressemail, String txtpassword, String first_name,
-                              String last_name, String adresse, String phone_number, String username) {
-        auth.createUserWithEmailAndPassword(adressemail , txtpassword).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
+    private void registerUser(String adresse_mail, String password) {
+        auth.createUserWithEmailAndPassword(adresse_mail , password).addOnCompleteListener(RegistrationActivity.this , new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
