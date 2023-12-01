@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
     <?xml version="1.0" encoding="utf-8"?>
-
-    <resources>
-        <item name="login" type="id" />
-        <item name="password" type="id" />
-        <item name="adresse_mail" type="id" />
-        <item name="register" type="id" />
-        <item name="phone_number" type="id" />
-        <item name="adresse" type="id" />
-        <item name="username" type="id" />
-        <item name="last_name" type="id" />
-        <item name="first_name" type="id" />
-        <item name="d_ja_inscrit" type="id" />
-    </resources>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -181,7 +167,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.887"
-        app:layout_constraintWidth_percent=".8" />
+        app:layout_constraintWidth_percent=".8"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/textView2"
