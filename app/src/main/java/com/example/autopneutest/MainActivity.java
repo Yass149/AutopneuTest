@@ -18,7 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button register;
+    private Button s_inscrire;
     private Button login;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        register =findViewById(R.id.register);
+        s_inscrire =findViewById(R.id.s_inscrire);
         login =findViewById(R.id.login);
-        register.setOnClickListener(new View.OnClickListener() {
+        s_inscrire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this , RegistrationActivity.class));

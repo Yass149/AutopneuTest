@@ -42,7 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         adresse = findViewById(R.id.adresse);
         phone_number = findViewById(R.id.phone_number);
-        s_inscrire = findViewById(R.id.register);
+        s_inscrire = findViewById(R.id.s_inscrire);
         d_ja_inscrit = findViewById(R.id.d_ja_inscrit);
         se_connecter = findViewById(R.id.login);
 
