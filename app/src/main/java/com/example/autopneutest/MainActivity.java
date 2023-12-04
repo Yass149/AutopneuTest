@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth =FirebaseAuth.getInstance();
-        button = findViewById(R.id.disbtn);
-        textView = findViewById(R.id.user_info);
+        button = findViewById(R.id.user_info);
+        textView = findViewById(R.id.useremail);
         user = auth.getCurrentUser();
         if (user == null)
         {
