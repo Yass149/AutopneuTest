@@ -10,4 +10,5 @@
     <item name="last_name" type="id" />
     <item name="first_name" type="id" />
     <item name="d_ja_inscrit" type="id" />
+    <item name="mbutton" type="id" />
 </resources>

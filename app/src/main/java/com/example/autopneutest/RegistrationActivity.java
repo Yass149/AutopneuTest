@@ -42,7 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextemail = findViewById(R.id.editText3);
         editTextpassword = findViewById(R.id.editText2);
-        buttonReg = findViewById(R.id.button);
+        buttonReg = findViewById(R.id.mbutton);
         progressBar = findViewById(R.id.progressBar);
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
