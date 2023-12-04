@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-   /* public void disconnect(View view) {
+   public void disconnect(View view) {
 
 
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         finish();
-    }*/
+    }
 
 
     @Override
