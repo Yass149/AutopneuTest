@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,12 +43,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="UnknownIdInLayout" />
 
-
         <ImageView
             android:id="@+id/imageViewToAnotherPage"
             android:layout_width="159dp"
             android:layout_height="94dp"
-            android:layout_marginTop="196dp"
+            android:layout_marginTop="272dp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="searchForTiresActivity"
@@ -60,74 +60,75 @@
             android:id="@+id/imageViewToMyCart"
             android:layout_width="155dp"
             android:layout_height="98dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="4dp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="handleCartIconClick"
             android:src="@drawable/baseline_shopping_cart_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintVertical_bias="0.36"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="25dp" />
-
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textViewBelowIcon1"
             android:layout_width="103dp"
             android:layout_height="25dp"
-            android:layout_marginBottom="148dp"
+            android:layout_marginTop="8dp"
             android:text="@string/mon_panier"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="DuplicateIds,MissingConstraints"
-            tools:layout_editor_absoluteX="65dp" />
-
-        <ImageView
-            android:id="@+id/iconView"
-            android:layout_width="122dp"
-            android:layout_height="113dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="handleIconClick"
-            android:src="@drawable/baseline_all_inclusive_24"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="273dp"
-            tools:layout_editor_absoluteY="248dp" />
-
-        <TextView
-            android:id="@+id/textViewBelowIcon2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/catalogue"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iconView"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="@+id/iconView"
-            app:layout_constraintTop_toBottomOf="@+id/iconView"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewToMyCart"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewToMyCart"
+            app:layout_constraintHorizontal_bias="0.711"
+            app:layout_constraintStart_toStartOf="@+id/imageViewToMyCart"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewToMyCart"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="DuplicateIds" />
-
-
-
+            tools:ignore="DuplicateIds,MissingConstraints" />
 
         <TextView
             android:id="@+id/textViewBelowImage3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="@string/rechercher"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewToAnotherPage"
             app:layout_constraintEnd_toEndOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintHorizontal_bias="0.562"
             app:layout_constraintStart_toStartOf="@+id/imageViewToAnotherPage"
             app:layout_constraintTop_toBottomOf="@+id/imageViewToAnotherPage"
-            app:layout_constraintVertical_bias="0.054" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="handleThirdImageClick"
+            android:src="@drawable/partenaire"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewToMyCart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textViewBelowImage4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nos_partenaires"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="DuplicateIds,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.core.widget.NestedScrollView>

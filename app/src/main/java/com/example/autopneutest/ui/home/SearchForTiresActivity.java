@@ -8,6 +8,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,7 +23,7 @@ public class SearchForTiresActivity extends AppCompatActivity {
 
     String[] item = {"Mercedes-Benz", "BMW", "Dacia"};
     String[] seconditem = {"C300", "E350", "M4", "X1", "Logan", "Sandero"};
-    String[] thirditem = {"2022", "2021"};
+    String[] thirditem = {"2022"};
     String[] largeuritem = {"235", "195"};
     String[] hauteuritem = {"55", "65"};
     String[] diametreitem = {"R17", "R16"};
@@ -107,6 +112,8 @@ public class SearchForTiresActivity extends AppCompatActivity {
         });
 
 
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -142,6 +149,64 @@ public class SearchForTiresActivity extends AppCompatActivity {
         }
 
         secondAdapterItems.notifyDataSetChanged();
+    }
+
+    private String selectedThirdItem;
+
+    private void updateThirdDropdownItems(String selectedSecondItem) {
+        thirdAdapterItems.clear();
+
+        if (selectedSecondItem.equals("C300")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        } else if (selectedSecondItem.equals("E350")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        } else if (selectedSecondItem.equals("M4")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        } else if (selectedSecondItem.equals("X1")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        } else if (selectedSecondItem.equals("Logan")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        } else if (selectedSecondItem.equals("Sandero")) {
+            thirdAdapterItems.addAll("2022");
+            selectedThirdItem = "2022"; // Assign the selected item to the variable
+        }
+
+        thirdAdapterItems.notifyDataSetChanged();
+
+        // Make thirdAutoCompleteTextView visible
+        thirdAutoCompleteTextView.setVisibility(View.VISIBLE);
+
+        // Check conditions for showing the image
+        String selectedBrand = autoCompleteTextView.getText().toString();
+        if (selectedBrand.equals("Mercedes-Benz") && selectedSecondItem.equals("C300") && selectedThirdItem.equals("2022")) {
+            // Show the image
+            showImage();
+        }
+    }
+
+    private void showImage() {
+        // Create an AlertDialog to display the image
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.layout_image_display, null);
+        ImageView imageView = dialogView.findViewById(R.id.imageView);
+
+        // Set the image resource (replace with your actual image resource)
+        imageView.setImageResource(R.drawable.mercedes_c300_2022);
+
+        // Configure the dialog
+        builder.setView(dialogView)
+                .setTitle("Your Image Title")
+                .setPositiveButton("OK", null); // You can add more buttons if needed
+
+        // Show the dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void updateHauteurDropdownItems(String selectedLargeur) {
