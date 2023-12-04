@@ -36,7 +36,7 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         tools:ignore="UnknownIdInLayout" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -55,9 +55,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textStyle="bold"
-        android:onClick="register"
         app:layout_constraintWidth_percent=".8"
-        android:background="@drawable/btn_bg_design"/>
+        android:background="@drawable/btn_bg_design"
+        android:onClick="register"/>
 
     <TextView
         android:layout_width="match_parent"
