@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/mail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:layout_constraintWidth_percent=".8"
         tools:ignore="MissingConstraints,NotSibling" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/pass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

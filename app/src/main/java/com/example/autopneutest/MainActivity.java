@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-   public void disconnect(View view) {
+   /* public void disconnect(View view) {
 
 
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         finish();
-    }
+    }*/
 
 
     @Override
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth =FirebaseAuth.getInstance();
-        button = findViewById(R.id.user_info);
-        textView = findViewById(R.id.useremail);
+        button = findViewById(R.id.disbtn);
+        textView = findViewById(R.id.user_info);
         user = auth.getCurrentUser();
         if (user == null)
         {
