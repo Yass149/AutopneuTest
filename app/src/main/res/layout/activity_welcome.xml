@@ -59,7 +59,7 @@
         android:background="@drawable/btn_bg_design"
         android:onClick="register"/>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
