@@ -45,7 +45,7 @@
         tools:ignore="UnknownIdInLayout" />
 
     <Button
-        android:onClick="buttonReg"
+        android:onClick="registrationActivity"
         android:id="@+id/btn_reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
