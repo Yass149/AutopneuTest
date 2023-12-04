@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.autopneutest">
+    package="com.example.autopneutest" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AutopneuTest">
+        android:theme="@style/Theme.AutopneuTest" >
+        <activity
+            android:name=".RechercherResultActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.home.SearchForTiresActivity"
             android:exported="false" />
@@ -28,7 +31,7 @@
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".WelcomeActivity"
-            android:exported="true"> <!-- or "false" based on your app's requirements -->
+            android:exported="true" > <!-- or "false" based on your app's requirements -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

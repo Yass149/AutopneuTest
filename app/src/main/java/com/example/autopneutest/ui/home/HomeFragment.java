@@ -20,7 +20,8 @@ public class HomeFragment extends Fragment {
 
         ImageView imageViewToAnotherPage = view.findViewById(R.id.imageViewToAnotherPage);
         ImageView imageViewToMyCart = view.findViewById(R.id.imageViewToMyCart);
-        ImageView iconView = view.findViewById(R.id.iconView);
+        ImageView imageView3 = view.findViewById(R.id.imageView3);
+
 
 
         imageViewToAnotherPage.setOnClickListener(new View.OnClickListener() {
@@ -37,10 +38,11 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        iconView.setOnClickListener(new View.OnClickListener() {
+        imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleIconClick();
+                // Handle the click event for imageView3
+                handleThirdImageClick();
             }
         });
 
@@ -53,7 +55,7 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void handleIconClick() {
+    private void handleThirdImageClick() {
         NavHostFragment.findNavController(this)
                 .navigate(R.id.action_home_to_catalog);
     }
