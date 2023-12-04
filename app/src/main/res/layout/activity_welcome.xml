@@ -44,7 +44,7 @@
         tools:ignore="UnknownIdInLayout" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonReg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textStyle="bold"
-        android:onClick="register"
+        android:onClick="buttonReg"
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/btn_bg_design"/>
 
