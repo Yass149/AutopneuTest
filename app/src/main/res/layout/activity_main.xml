@@ -27,11 +27,11 @@
         app:itemTextColor="@color/white">
         
         <Button
-            android:id="@+id/user_info"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/se_d_connecter"
+            android:id="@+id/user_info"
+            android:text="@string/d_ja_inscrit"
             android:layout_gravity="bottom"
             android:textAllCaps="false"
             android:textStyle="bold"

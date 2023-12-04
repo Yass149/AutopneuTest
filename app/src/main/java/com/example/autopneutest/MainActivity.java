@@ -66,12 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (textView != null) {
+            // Update this block to dynamically set the user's email address
             user = auth.getCurrentUser();
             if (user == null) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             } else {
+                // Set the user's email address to the TextView
                 textView.setText(user.getEmail());
             }
         } else {
