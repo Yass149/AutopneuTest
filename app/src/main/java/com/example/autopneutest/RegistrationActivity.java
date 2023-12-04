@@ -24,16 +24,6 @@ public class RegistrationActivity extends AppCompatActivity {
         Button buttonReg;
         FirebaseAuth mAuth;
         ProgressBar progressBar;
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
