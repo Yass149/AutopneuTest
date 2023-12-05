@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.CatalogFragment">
+    android:fillViewport="true">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Catalog"/>
+        android:layout_height="wrap_content"
+        tools:context=".ui.gallery.CatalogFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/nos_partenaires"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="33sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+        <!-- Image 1 -->
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="368dp"
+            android:layout_height="105dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/pirelli_logo" />
+
+        <!-- Image 2 -->
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="380dp"
+            android:layout_height="146dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/mlichelin_logo" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="324dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="132dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.367"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/hankook_logo" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="325dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="404dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.255"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/firestone_logo" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="448dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="132dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/bridgestone_logo" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="349dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="244dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.258"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/toyo_tire_logo" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="333dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="292dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.205"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:srcCompat="@drawable/continental_logo" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="355dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="48dp"
+            android:scaleType="fitStart"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:srcCompat="@drawable/giti_logo" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
