@@ -91,7 +91,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    public void goBack(View view) {
+        onBackPressed();
+    }
     private boolean isValidPassword(String password) {
         return password.length() >= 10 && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\",./<>?].*");
     }

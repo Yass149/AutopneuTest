@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -46,53 +47,91 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:ignore="UnknownIdInLayout" />
 
-    <EditText
-        android:id="@+id/editText3"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutMail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:backgroundTint="#CCCCCC"
-        android:drawablePadding="13dp"
-        android:hint="@string/username"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.314"
-        app:layout_constraintWidth_percent=".8"
-        tools:ignore="MissingConstraints,NotSibling,UnknownIdInLayout" />
+        app:layout_constraintWidth_percent=".8">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#CCCCCC"
         android:drawablePadding="13dp"
-        android:hint="@string/password"
+        android:hint="@string/username"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.314"
         app:layout_constraintWidth_percent=".8"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,NotSibling"/>
+</com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:onClick="mainAdminActivity"
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_bg_design"
-        android:padding="14dp"
-        android:text="@string/se_connecter"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent=".8" />
+<com.google.android.material.textfield.TextInputLayout
+android:id="@+id/textInputLayoutPassword"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:background="#FFFFFF"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMail"
+    app:layout_constraintWidth_percent=".8">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/pass"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:drawablePadding="13dp"
+android:hint="@string/password"
+    android:background="#FFFFFF"
+android:inputType="textPassword"
+android:textColor="@color/black"
+android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<Button
+android:id="@+id/button"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginBottom="60dp"
+android:background="@drawable/btn_bg_design"
+android:onClick="mainAdminActivity"
+android:padding="14dp"
+android:text="@string/se_connecter"
+android:textAllCaps="false"
+android:textStyle="bold"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintWidth_percent=".8" />
+
+<ProgressBar
+android:id="@+id/progressBar"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:visibility="gone"
+tools:ignore="MissingConstraints" />
+
+<Button
+android:id="@+id/backButton"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Back"
+android:onClick="login"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+android:layout_marginTop="16dp"
+android:layout_marginStart="16dp"
+    tools:ignore="OnClick" />
+    </androidx.constraintlayout.widget.ConstraintLayout>

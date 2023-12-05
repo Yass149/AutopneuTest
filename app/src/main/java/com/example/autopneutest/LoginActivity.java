@@ -84,6 +84,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    public void goBack(View view) {
+        onBackPressed();
+    }
     public void register(View view) {
 
         startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));

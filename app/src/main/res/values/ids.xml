@@ -13,4 +13,9 @@
     <item name="mbutton" type="id" />
     <item name="disbtn" type="id" />
     <item name="textInputEditTextPhone" type="id" />
+    <item name="listViewAppointments" type="id" />
+    <item name="adminemail" type="id" />
+    <item name="adminpass" type="id" />
+    <item name="adminPassword" type="id" />
+    <item name="adminEmail" type="id" />
 </resources>
