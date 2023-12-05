@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/user_info"
-            android:text="@string/d_ja_inscrit"
+            android:text="@string/se_déconnecte"
             android:layout_gravity="bottom"
             android:textAllCaps="false"
             android:textStyle="bold"
