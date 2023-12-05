@@ -74,11 +74,17 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             } else {
                 // Set the user's email address to the TextView
-                textView.setText(user.getEmail());
+                TextView usernameTextView = findViewById(R.id.username); // Assuming you have a TextView with ID 'username'
+                if (usernameTextView != null) {
+                    usernameTextView.setText(user.getEmail());
+                } else {
+                    Log.e("MainActivity", "TextView 'username' not found in the layout");
+                }
             }
         } else {
             Log.e("MainActivity", "TextView 'user_info' not found in the layout");
         }
+
 
         setSupportActionBar(binding.appBarMain.toolbar);
 

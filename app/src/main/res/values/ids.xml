@@ -12,4 +12,5 @@
     <item name="d_ja_inscrit" type="id" />
     <item name="mbutton" type="id" />
     <item name="disbtn" type="id" />
+    <item name="textInputEditTextPhone" type="id" />
 </resources>
