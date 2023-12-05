@@ -7,6 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".LoginAdminActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutSpecialCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent=".8">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/specialCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="13dp"
+            android:hint="Special Code"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:background="#FFFFFF"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
