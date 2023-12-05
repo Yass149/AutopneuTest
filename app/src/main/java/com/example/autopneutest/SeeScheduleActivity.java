@@ -3,12 +3,12 @@ package com.example.autopneutest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +50,22 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
         // Retrieve and display the appointments for the current admin
         retrieveAppointments(currentUser.getUid());
+
+        // Setup Toolbar and Back Button
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Enable the Up button in the ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void retrieveAppointments(String adminId) {
