@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutopneuTest">
         <activity
+            android:name=".ui.home.ShowProductBySize"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.ShowProduct"
             android:exported="false" />
         <activity

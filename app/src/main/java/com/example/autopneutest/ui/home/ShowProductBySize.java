@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.autopneutest.R;
 
-public class ShowProduct extends AppCompatActivity {
+public class ShowProductBySize extends AppCompatActivity {
 
     Button btnBack;
     TextView descriptionTextView;
@@ -20,7 +20,7 @@ public class ShowProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_product);
+        setContentView(R.layout.activity_show_product_by_size);
 
         // Retrieve the image name from the Intent
         Intent intent = getIntent();
@@ -39,7 +39,7 @@ public class ShowProduct extends AppCompatActivity {
         }
 
         // Get the back button
-        btnBack = findViewById(R.id.backButton);
+        btnBack = findViewById(R.id.backButton1);
 
         // Set a click listener on the back button
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class ShowProduct extends AppCompatActivity {
         });
 
         // Initialize descriptionTextView
-        descriptionTextView = findViewById(R.id.descriptionTextView);
+        descriptionTextView = findViewById(R.id.descriptionTextView1);
 
         // Set description text
         setDescriptionText(imageName);
@@ -61,18 +61,16 @@ public class ShowProduct extends AppCompatActivity {
         String descriptionText = "";
 
         // Set the description text based on the selected image
-        if (imageName.equals("mercedes_c300_2022")) {
-            descriptionText = "BRIDGESTONE ALENZA 225/45R18\nPrix: 1 600 MAD";
-        } else if (imageName.equals("mercedes_e350_2022")) {
-            descriptionText = "BRIDGESTONE POTENZA RE980AS+ 245/45R18 XL\nPrix: 1 900 MAD";
-        } else if (imageName.equals("bmw_x1")) {
-            descriptionText = "TOYO PROXES SPORT A/S 225/50R18\nPrix: 2 100 MAD";
-        } else if (imageName.equals("bmw_m4_2022")) {
-            descriptionText = "CONTINENTAL'S SPORTCONTACT 6 XL 225/35R20\nPrix: 3 300 MAD";
-        } else if (imageName.equals("dacia_logan")) {
-            descriptionText = "PIRELLI 185/65R15 88T\nPrix: 700 MAD";
-        } else if (imageName.equals("dacia_sandero")) {
-            descriptionText = "GITISYNERGY 205/60R16 92H\nPrix: 750 MAD";
+        if (imageName.equals("p235_55_r17")) {
+            descriptionText = "PIRELLI SCORPION 235/55R17\nPrix: 1 650 MAD";
+        } else if (imageName.equals("p235_65_r16")) {
+            descriptionText = "MICHELIN 235/65R16 C 115R\nPrix: 1 950 MAD";
+        } else if (imageName.equals("p235_65_r17")) {
+            descriptionText = "HANKOOK DYNAPRO HP2 RA33 235/65R17 108H XL\nPrix: 1 350 MAD";
+        } else if (imageName.equals("p195_65_r16")) {
+            descriptionText = "MICHELIN 195/65R16 92V\nPrix: 1 380 MAD";
+        } else if (imageName.equals("p195_55_r16")) {
+            descriptionText = "FIRESTONE RHAWK 195/55R16\nPrix: 950 MAD";
         }
 
         // Set the description text to the TextView

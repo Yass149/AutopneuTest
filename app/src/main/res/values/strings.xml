@@ -54,8 +54,8 @@
     <string name="adresse_mail">Adresse mail</string>
     <string name="nos_partenaires">Nos Partenaires</string>
     <string name="ajouter_au_panier">Ajouter Au Panier</string>
-    <string name="adresse_email">adresse email</string>
-    <string name="se_déconnecte">se déconnecter</string>
-    <string name="reenterpassword">Entrez à nouveau le mot de passe</string>
+    <string name="adresse_email">Adresse email</string>
+    <string name="reenterpassword">Confirmer mot de passe</string>
+    <string name="se_d_connecter">Se déconnecter</string>
 
 </resources>

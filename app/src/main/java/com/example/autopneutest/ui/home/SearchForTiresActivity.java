@@ -19,6 +19,7 @@ import com.example.autopneutest.R;
 public class SearchForTiresActivity extends AppCompatActivity {
 
     Button btnRechercher;
+    Button btnFiltrer;
 
 
     String[] item = {"Mercedes-Benz", "BMW", "Dacia"};
@@ -54,6 +55,7 @@ public class SearchForTiresActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_for_tires);
 
         btnRechercher = findViewById(R.id.rechercherButton);
+        btnFiltrer = findViewById(R.id.filtrerButton);
 
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         secondAutoCompleteTextView = findViewById(R.id.second_auto_complete_txt);
@@ -115,6 +117,7 @@ public class SearchForTiresActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         rechercherButton = findViewById(R.id.rechercherButton);
+        filtrerButton = findViewById(R.id.filtrerButton);
 
         filterText = findViewById(R.id.filterText);
         ouText = findViewById(R.id.ouText);
@@ -135,9 +138,23 @@ public class SearchForTiresActivity extends AppCompatActivity {
             }
         });
 
+
         filtrerButton = findViewById(R.id.filtrerButton);
 
-        // Add your button click listeners or any additional logic here
+        filtrerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedLargeurItem = largeurAutoCompleteTextView.getText().toString();
+                String selectedHauteurItem = hauteurAutoCompleteTextView.getText().toString();
+                String selectedDiametreItem = diametreAutoCompleteTextView.getText().toString();
+
+                String imageName = getSelectedImage1(selectedLargeurItem, selectedHauteurItem, selectedDiametreItem);
+
+                Intent intent = new Intent(SearchForTiresActivity.this, ShowProductBySize.class);
+                intent.putExtra("imageName", imageName);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -205,6 +222,23 @@ public class SearchForTiresActivity extends AppCompatActivity {
             imageName = "dacia_sandero";
         }
 
+        return imageName;
+    }
+
+    private String getSelectedImage1(String selectedLargeurItem, String selectedHauteurItem, String selectedDiametreItem) {
+        String imageName = "";
+
+        if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("55") && selectedDiametreItem.equals("R17")) {
+            imageName = "p235_55_r17";
+        } else if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R16")) {
+            imageName = "p235_65_r16";
+        }else if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R17")) {
+            imageName = "p235_65_r17";
+        }else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R16")) {
+            imageName = "p195_65_r16";
+        }else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("55") && selectedDiametreItem.equals("R16")) {
+            imageName = "p195_55_r16";
+        }
         return imageName;
     }
 
