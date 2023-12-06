@@ -18,4 +18,6 @@
     <item name="adminpass" type="id" />
     <item name="adminPassword" type="id" />
     <item name="adminEmail" type="id" />
+    <item name="checkoutButton" type="id" />
+    <item name="removeButton" type="id" />
 </resources>

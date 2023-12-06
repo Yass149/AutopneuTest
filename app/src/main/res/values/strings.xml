@@ -57,5 +57,9 @@
     <string name="adresse_email">Adresse email</string>
     <string name="reenterpassword">Confirmer mot de passe</string>
     <string name="se_d_connecter">Se déconnecter</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_namee">Product Name</string>
 
 </resources>
