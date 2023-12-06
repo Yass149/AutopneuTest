@@ -8,6 +8,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
 import android.widget.ListView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,8 +17,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class SeeScheduleActivity extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
     private ListView listViewAppointments;
     private List<String> appointmentsList;
+    private CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,6 @@ public class SeeScheduleActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if (currentUser == null) {
-            // Redirect to login or handle the case where the admin is not signed in
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             return;
@@ -44,22 +48,30 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
         appointmentsList = new ArrayList<>();
         listViewAppointments = findViewById(R.id.listViewAppointments);
+        calendarView = findViewById(R.id.calendarView);
 
-        // Set up the reference to the appointments node in your database
         appointmentsRef = FirebaseDatabase.getInstance().getReference().child("appointments");
 
-        // Retrieve and display the appointments for the current admin
         retrieveAppointments(currentUser.getUid());
 
-        // Setup Toolbar and Back Button
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Enable the Up button in the ActionBar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        // Set up the listener for date changes in the CalendarView
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                // Handle the selected date change, e.g., update the list based on the selected date
+                Calendar selectedDate = Calendar.getInstance();
+                selectedDate.set(year, month, dayOfMonth);
+                updateListForSelectedDate(selectedDate);
+            }
+        });
     }
 
     @Override
@@ -69,23 +81,15 @@ public class SeeScheduleActivity extends AppCompatActivity {
     }
 
     private void retrieveAppointments(String adminId) {
-        // Query the appointments for the current admin
         appointmentsRef.orderByChild("adminId").equalTo(adminId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 appointmentsList.clear();
 
                 for (DataSnapshot appointmentSnapshot : dataSnapshot.getChildren()) {
-                    // Assuming you have a model class for appointments, adjust the code accordingly
-                    // For example, if your Appointment class has a 'time' field, you can retrieve it like this:
-                    // String time = appointmentSnapshot.child("time").getValue(String.class);
-                    // appointmentsList.add(time);
-
-                    // Add the appointment details to the list (modify based on your data structure)
                     appointmentsList.add(appointmentSnapshot.getValue(String.class));
                 }
 
-                // Update the ListView with the appointments
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(SeeScheduleActivity.this, android.R.layout.simple_list_item_1, appointmentsList);
                 listViewAppointments.setAdapter(arrayAdapter);
             }
@@ -95,5 +99,36 @@ public class SeeScheduleActivity extends AppCompatActivity {
                 Log.e("SeeScheduleActivity", "Error retrieving appointments: " + databaseError.getMessage());
             }
         });
+    }
+
+    private void updateListForSelectedDate(Calendar selectedDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String selectedDateString = dateFormat.format(selectedDate.getTime());
+
+        appointmentsRef.orderByChild("adminId").equalTo(mAuth.getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        appointmentsList.clear();
+
+                        for (DataSnapshot appointmentSnapshot : dataSnapshot.getChildren()) {
+                            // Assuming you have a 'date' field in your appointment model
+                            String appointmentDate = appointmentSnapshot.child("date").getValue(String.class);
+
+                            // Filter appointments for the selected date
+                            if (selectedDateString.equals(appointmentDate)) {
+                                appointmentsList.add(appointmentSnapshot.getValue(String.class));
+                            }
+                        }
+
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(SeeScheduleActivity.this, android.R.layout.simple_list_item_1, appointmentsList);
+                        listViewAppointments.setAdapter(arrayAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Log.e("SeeScheduleActivity", "Error retrieving appointments: " + databaseError.getMessage());
+                    }
+                });
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Custom styles for CalendarView -->
+    <style name="CustomDateText">
+        <item name="android:textColor">#FF0000</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
+    <style name="CustomHeaderText">
+        <item name="android:textSize">18sp</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
+    <style name="CustomWeekDayText">
+        <item name="android:textStyle">bold</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
+</resources>
