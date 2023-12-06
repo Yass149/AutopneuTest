@@ -20,4 +20,5 @@
     <item name="adminEmail" type="id" />
     <item name="checkoutButton" type="id" />
     <item name="removeButton" type="id" />
+    <item name="otherViewsIfNeeded" type="id" />
 </resources>

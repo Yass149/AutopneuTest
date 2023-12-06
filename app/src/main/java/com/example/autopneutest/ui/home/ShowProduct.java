@@ -12,55 +12,55 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.autopneutest.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShowProduct extends AppCompatActivity {
 
-    Button btnBack;
-    TextView descriptionTextView;
+    private List<String> cartItems; // List to store selected products
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_product);
 
-        // Retrieve the image name from the Intent
+        cartItems = new ArrayList<>(); // Initialize the cartItems list
+
         Intent intent = getIntent();
         String imageName = intent.getStringExtra("imageName");
 
-        // Use the image name to display the corresponding image
         int resourceId = getResources().getIdentifier(imageName, "drawable", getPackageName());
 
-        // Check if the resource exists before setting the image
         if (resourceId != 0) {
-            ImageView imageView = findViewById(R.id.imageView); // Replace with your actual ImageView ID
+            ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageResource(resourceId);
         } else {
-            // Handle the case where the resource does not exist
             Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show();
         }
 
-        // Get the back button
-        btnBack = findViewById(R.id.backButton);
-
-        // Set a click listener on the back button
+        Button btnBack = findViewById(R.id.backButton);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Finish the current activity to go back
                 finish();
             }
         });
 
-        // Initialize descriptionTextView
-        descriptionTextView = findViewById(R.id.descriptionTextView);
+        TextView descriptionTextView = findViewById(R.id.descriptionTextView);
+        setDescriptionText(descriptionTextView, imageName);
 
-        // Set description text
-        setDescriptionText(imageName);
+        Button btnAddToCart = findViewById(R.id.addToCartButton);
+        btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToCart(imageName);
+            }
+        });
     }
 
-    private void setDescriptionText(String imageName) {
+    private void setDescriptionText(TextView descriptionTextView, String imageName) {
         String descriptionText = "";
 
-        // Set the description text based on the selected image
         if (imageName.equals("mercedes_c300_2022")) {
             descriptionText = "BRIDGESTONE ALENZA 225/45R18\nPrix: 1 600 MAD";
         } else if (imageName.equals("mercedes_e350_2022")) {
@@ -75,7 +75,12 @@ public class ShowProduct extends AppCompatActivity {
             descriptionText = "GITISYNERGY 205/60R16 92H\nPrix: 750 MAD";
         }
 
-        // Set the description text to the TextView
         descriptionTextView.setText(descriptionText);
+    }
+
+    private void addToCart(String imageName) {
+        // Add the selected product to the cartItems list
+        cartItems.add(imageName);
+        Toast.makeText(this, "Product added to cart: " + imageName, Toast.LENGTH_SHORT).show();
     }
 }
