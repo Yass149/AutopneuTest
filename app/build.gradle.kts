@@ -47,6 +47,9 @@ dependencies {
     implementation ("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.google.firebase:firebase-inappmessaging:20.4.0")
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
