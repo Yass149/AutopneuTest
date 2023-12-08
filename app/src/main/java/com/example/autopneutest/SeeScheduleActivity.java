@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
@@ -93,6 +96,15 @@ public class SeeScheduleActivity extends AppCompatActivity {
             }
         });
 
+        // Set up the listener for item clicks in the ListView
+        listViewAppointments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Handle item click, e.g., show a dialog to confirm deletion
+                showDeleteConfirmationDialog(position);
+            }
+        });
+
         // Floating Action Button for showing the form
         FloatingActionButton fab = findViewById(R.id.fabAddAppointment);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +129,24 @@ public class SeeScheduleActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_clear, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_clear) {
+            clearAppointments();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadAppointmentsFromFirebase(String clientName) {
@@ -258,5 +288,65 @@ public class SeeScheduleActivity extends AppCompatActivity {
     private void updateUI() {
         ArrayAdapter<Appointment> arrayAdapter = new ArrayAdapter<>(SeeScheduleActivity.this, android.R.layout.simple_list_item_1, appointmentsList);
         listViewAppointments.setAdapter(arrayAdapter);
+    }
+
+    private void clearAppointments() {
+        // Show a confirmation dialog before clearing all appointments
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to delete all appointments?");
+        builder.setPositiveButton("Delete All", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Clear appointmentsList and update the UI
+                appointmentsList.clear();
+
+                // Notify the adapter or update UI components
+                updateUI();
+
+                // You may also want to remove data from Firebase if needed
+                // ...
+
+                // Clear appointments from SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("appointments");
+                editor.apply();
+
+                Toast.makeText(SeeScheduleActivity.this, "All appointments deleted successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+
+    private void showDeleteConfirmationDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to delete this appointment?");
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteAppointment(position);
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+    private void deleteAppointment(int position) {
+        if (position >= 0 && position < appointmentsList.size()) {
+            // Remove the selected appointment
+            Appointment deletedAppointment = appointmentsList.remove(position);
+
+            // Notify the adapter or update UI components
+            updateUI();
+
+            // You may also want to remove data from Firebase if needed
+            // ...
+
+            // Save appointments to SharedPreferences
+            saveAppointmentsToSharedPreferences();
+
+            Toast.makeText(SeeScheduleActivity.this, "Appointment deleted successfully", Toast.LENGTH_SHORT).show();
+        }
     }
 }

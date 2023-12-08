@@ -25,9 +25,4 @@
         android:calendarViewShown="false"
         android:datePickerMode="spinner"/>
 
-    <Button
-        android:id="@+id/buttonSaveAppointment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Appointment"/>
 </LinearLayout>

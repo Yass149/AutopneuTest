@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white" />
 
     <ListView
         android:id="@+id/listViewAppointments"
@@ -31,12 +32,13 @@
     <!-- Floating Action Button for adding appointments -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddAppointment"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginStart="330dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:src="@android:drawable/ic_input_add" />
+
 </RelativeLayout>
