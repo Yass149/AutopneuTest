@@ -61,5 +61,6 @@
     <string name="price">Price</string>
     <string name="product_name">Product Name</string>
     <string name="product_namee">Product Name</string>
+    <string name="d_client">Demandes des clients</string>
 
 </resources>

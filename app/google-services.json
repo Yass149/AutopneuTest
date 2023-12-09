@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "938514094531",
+    "firebase_url": "https://autopneus-e5875-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "autopneus-e5875",
     "storage_bucket": "autopneus-e5875.appspot.com"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.autopneutest"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "938514094531-0nao1f8nb2iqt2lg56ffmmn9eddoh52i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCbwXEu9No56Md5jKufFS_Kjam4Y7r4R2c"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938514094531-0nao1f8nb2iqt2lg56ffmmn9eddoh52i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

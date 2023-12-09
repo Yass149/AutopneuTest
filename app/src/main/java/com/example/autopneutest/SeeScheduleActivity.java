@@ -76,7 +76,9 @@ public class SeeScheduleActivity extends AppCompatActivity {
         // Load appointments from SharedPreferences
         loadAppointmentsFromSharedPreferences();
 
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("order");
+        ordersRef = FirebaseDatabase.getInstance().getReference("quantities");
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
