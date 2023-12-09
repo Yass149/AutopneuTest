@@ -2,29 +2,38 @@ package com.example.autopneutest.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.autopneutest.QuantityStorage;
 import com.example.autopneutest.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShowProduct extends AppCompatActivity {
 
-    private List<String> cartItems; // List to store selected products
+    private EditText editTextMessage; // List to store selected products
+    private QuantityStorage quantityStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_product);
 
-        cartItems = new ArrayList<>(); // Initialize the cartItems list
+        quantityStorage = QuantityStorage.getInstance(); // Get the QuantityStorage instance
 
         Intent intent = getIntent();
         String imageName = intent.getStringExtra("imageName");
@@ -37,7 +46,7 @@ public class ShowProduct extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show();
         }
-
+        editTextMessage = findViewById(R.id.editTextMessage);
         Button btnBack = findViewById(R.id.backButton);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,16 +55,8 @@ public class ShowProduct extends AppCompatActivity {
             }
         });
 
-        TextView descriptionTextView = findViewById(R.id.descriptionTextView);
+        TextView descriptionTextView = findViewById(R.id.descriptionTextView1);
         setDescriptionText(descriptionTextView, imageName);
-
-        Button btnAddToCart = findViewById(R.id.addToCartButton);
-        btnAddToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addToCart(imageName);
-            }
-        });
     }
 
     private void setDescriptionText(TextView descriptionTextView, String imageName) {
@@ -78,9 +79,41 @@ public class ShowProduct extends AppCompatActivity {
         descriptionTextView.setText(descriptionText);
     }
 
-    private void addToCart(String imageName) {
-        // Add the selected product to the cartItems list
-        cartItems.add(imageName);
-        Toast.makeText(this, "Product added to cart: " + imageName, Toast.LENGTH_SHORT).show();
+    public void sendMessage(View view) {
+        // This method is called when the user clicks a button to send the message
+        String message = editTextMessage.getText().toString();
+
+        // Add the quantity to Firestore using QuantityStorage
+        Intent intent = getIntent();
+        String productId = intent.getStringExtra("imageName");
+
+        sendQuantityToFirestore(productId, message);
+
+        // For now, let's just display a Toast message with the entered text
+        Toast.makeText(this, "Quantity added: " + message, Toast.LENGTH_SHORT).show();
+    }
+    private void sendQuantityToFirestore(String productId, String quantity) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Create a Map to store the data
+        Map<String, Object> data = new HashMap<>();
+        data.put("productId", productId);
+        data.put("value", quantity); // Store quantity as a string
+
+        // Add the data to Firestore
+        db.collection("quantities").document().set(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // Log for debugging
+                            Log.d("ShowProduct", "Quantity sent to Firestore: " + quantity);
+                        } else {
+                            // Log for debugging
+                            Log.e("ShowProduct", "Error sending quantity to Firestore", task.getException());
+                        }
+                    }
+                });
     }
 }
+
