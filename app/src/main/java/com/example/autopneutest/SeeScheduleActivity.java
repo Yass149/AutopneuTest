@@ -22,14 +22,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -42,7 +44,7 @@ import java.util.Locale;
 
 public class SeeScheduleActivity extends AppCompatActivity {
 
-    private DatabaseReference ordersRef;
+    private FirebaseFirestore db;
     private FirebaseAuth mAuth;
 
     private ListView listViewAppointments;
@@ -66,6 +68,7 @@ public class SeeScheduleActivity extends AppCompatActivity {
             return;
         }
 
+        db = FirebaseFirestore.getInstance();
         appointmentsList = new ArrayList<>();
         listViewAppointments = findViewById(R.id.listViewAppointments);
         calendarView = findViewById(R.id.calendarView);
@@ -75,10 +78,6 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
         // Load appointments from SharedPreferences
         loadAppointmentsFromSharedPreferences();
-
-        ordersRef = FirebaseDatabase.getInstance().getReference("quantities");
-
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,7 +115,7 @@ public class SeeScheduleActivity extends AppCompatActivity {
             }
         });
 
-        // Load appointments from Firebase
+        // Load appointments from Firestore
         loadAppointmentsFromFirebase(currentUser.getUid());
     }
 
@@ -152,42 +151,46 @@ public class SeeScheduleActivity extends AppCompatActivity {
     }
 
     private void loadAppointmentsFromFirebase(String clientName) {
-        ordersRef.orderByChild("clientname").equalTo(clientName).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                appointmentsList.clear();
+        db.collection("appointments")
+                .whereEqualTo("clientname", clientName)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            appointmentsList.clear();
 
-                for (DataSnapshot orderSnapshot : dataSnapshot.getChildren()) {
-                    Appointment appointment = orderSnapshot.getValue(Appointment.class);
-                    appointmentsList.add(appointment);
-                }
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Appointment appointment = document.toObject(Appointment.class);
+                                appointmentsList.add(appointment);
+                            }
 
-                // Save appointments to SharedPreferences
-                saveAppointmentsToSharedPreferences();
+                            // Save appointments to SharedPreferences
+                            saveAppointmentsToSharedPreferences();
 
-                // Update the UI with client names
-                updateUI();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("SeeScheduleActivity", "Error retrieving appointments: " + databaseError.getMessage());
-            }
-        });
+                            // Update the UI with client names
+                            updateUI();
+                        } else {
+                            Log.e("SeeScheduleActivity", "Error retrieving appointments: " + task.getException());
+                        }
+                    }
+                });
     }
 
     private void updateListForSelectedDate(Calendar selectedDate) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String selectedDateString = dateFormat.format(selectedDate.getTime());
 
-        ordersRef.orderByChild("clientname").equalTo(mAuth.getCurrentUser().getUid())
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+        db.collection("appointments")
+                .whereEqualTo("clientname", mAuth.getCurrentUser().getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
                         appointmentsList.clear();
 
-                        for (DataSnapshot orderSnapshot : dataSnapshot.getChildren()) {
-                            Appointment appointment = orderSnapshot.getValue(Appointment.class);
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Appointment appointment = document.toObject(Appointment.class);
                             String appointmentDate = appointment.getOrderDate();
 
                             if (selectedDateString.equals(appointmentDate)) {
@@ -200,11 +203,6 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
                         ArrayAdapter<Appointment> arrayAdapter = new ArrayAdapter<>(SeeScheduleActivity.this, android.R.layout.simple_list_item_1, appointmentsList);
                         listViewAppointments.setAdapter(arrayAdapter);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Log.e("SeeScheduleActivity", "Error retrieving appointments: " + databaseError.getMessage());
                     }
                 });
     }
@@ -232,7 +230,7 @@ public class SeeScheduleActivity extends AppCompatActivity {
                 // Create an Appointment object
                 Appointment newAppointment = new Appointment(clientName, selectedDate, clientAddress);
 
-                // Save the Appointment to Firebase
+                // Save the Appointment to Firestore
                 saveAppointmentToFirebase(newAppointment);
 
                 dialog.dismiss();
@@ -251,18 +249,29 @@ public class SeeScheduleActivity extends AppCompatActivity {
     }
 
     private void saveAppointmentToFirebase(Appointment appointment) {
-        String orderId = ordersRef.push().getKey();
-        ordersRef.child(orderId).setValue(appointment);
+        db.collection("appointments")
+                .add(appointment)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        appointment.setAppointmentId(documentReference.getId());
+                        appointmentsList.add(appointment);
 
-        appointmentsList.add(appointment);
+                        // Save appointments to SharedPreferences
+                        saveAppointmentsToSharedPreferences();
 
-        // Save appointments to SharedPreferences
-        saveAppointmentsToSharedPreferences();
+                        Toast.makeText(SeeScheduleActivity.this, "Appointment saved successfully", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(SeeScheduleActivity.this, "Appointment saved successfully", Toast.LENGTH_SHORT).show();
-
-        // Update the UI with the new data
-        updateUI();
+                        // Update the UI with the new data
+                        updateUI();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("SeeScheduleActivity", "Error saving appointment: " + e.getMessage());
+                    }
+                });
     }
 
     private void saveAppointmentsToSharedPreferences() {
@@ -305,7 +314,7 @@ public class SeeScheduleActivity extends AppCompatActivity {
                 // Notify the adapter or update UI components
                 updateUI();
 
-                // You may also want to remove data from Firebase if needed
+                // You may also want to remove data from Firestore if needed
                 // ...
 
                 // Clear appointments from SharedPreferences
@@ -319,7 +328,6 @@ public class SeeScheduleActivity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", null);
         builder.show();
     }
-
 
     private void showDeleteConfirmationDialog(final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -336,19 +344,31 @@ public class SeeScheduleActivity extends AppCompatActivity {
 
     private void deleteAppointment(int position) {
         if (position >= 0 && position < appointmentsList.size()) {
-            // Remove the selected appointment
-            Appointment deletedAppointment = appointmentsList.remove(position);
+            // Remove the selected appointment from Firestore
+            db.collection("appointments")
+                    .document(appointmentsList.get(position).getAppointmentId())
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Remove the selected appointment locally
+                            Appointment deletedAppointment = appointmentsList.remove(position);
 
-            // Notify the adapter or update UI components
-            updateUI();
+                            // Notify the adapter or update UI components
+                            updateUI();
 
-            // You may also want to remove data from Firebase if needed
-            // ...
+                            // Save appointments to SharedPreferences
+                            saveAppointmentsToSharedPreferences();
 
-            // Save appointments to SharedPreferences
-            saveAppointmentsToSharedPreferences();
-
-            Toast.makeText(SeeScheduleActivity.this, "Appointment deleted successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SeeScheduleActivity.this, "Appointment deleted successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e("SeeScheduleActivity", "Error deleting appointment: " + e.getMessage());
+                        }
+                    });
         }
     }
 }
