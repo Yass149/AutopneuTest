@@ -29,6 +29,8 @@ public class ShowProductBySize extends AppCompatActivity {
     private EditText quantityEditText;
     private Button sendToAdminButton;
     private QuantityStorage quantityStorage;
+    private EditText addressEditText;
+    private EditText fullNameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class ShowProductBySize extends AppCompatActivity {
         // Initialize quantityEditText and sendToAdminButton
         quantityEditText = findViewById(R.id.quantityEditText);
         sendToAdminButton = findViewById(R.id.sendToAdminButton);
+        addressEditText = findViewById(R.id.addressEditText);
+        fullNameEditText = findViewById(R.id.fullNameEditText);
         quantityStorage = QuantityStorage.getInstance();
 
         // Use the image name to display the corresponding image
@@ -121,11 +125,14 @@ public class ShowProductBySize extends AppCompatActivity {
 
     private void sendQuantityToFirestore(String imageName, String quantity) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+        String address = addressEditText.getText().toString().trim();
+        String fullName = fullNameEditText.getText().toString().trim();
         // Create a Map to store the data
         Map<String, Object> data = new HashMap<>();
         data.put("productId", imageName);
-        data.put("value", quantity); // Store quantity as a string
+        data.put("value", quantity);
+        data.put("address", address);
+        data.put("fullName", fullName); // Store quantity as a string
 
         // Add the data to Firestore
         db.collection("quantities").document().set(data)

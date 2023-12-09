@@ -26,6 +26,8 @@ import java.util.Map;
 public class ShowProduct extends AppCompatActivity {
 
     private EditText editTextMessage; // List to store selected products
+    private EditText fullNameEditText; // Add this line
+    private EditText addressEditText;
     private QuantityStorage quantityStorage;
 
     @Override
@@ -47,6 +49,8 @@ public class ShowProduct extends AppCompatActivity {
             Toast.makeText(this, "Image not found", Toast.LENGTH_SHORT).show();
         }
         editTextMessage = findViewById(R.id.editTextMessage);
+        fullNameEditText = findViewById(R.id.fullNameEditText); // Add this line
+        addressEditText = findViewById(R.id.addressEditText);
         Button btnBack = findViewById(R.id.backButton);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,18 +91,23 @@ public class ShowProduct extends AppCompatActivity {
         Intent intent = getIntent();
         String productId = intent.getStringExtra("imageName");
 
-        sendQuantityToFirestore(productId, message);
+        String fullName = fullNameEditText.getText().toString().trim();
+        String address = addressEditText.getText().toString().trim();
+        sendQuantityToFirestore(productId, message, fullName, address);
 
         // For now, let's just display a Toast message with the entered text
         Toast.makeText(this, "Quantity added: " + message, Toast.LENGTH_SHORT).show();
     }
-    private void sendQuantityToFirestore(String productId, String quantity) {
+    private void sendQuantityToFirestore(String productId, String quantity, String fullName, String address) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         // Create a Map to store the data
         Map<String, Object> data = new HashMap<>();
         data.put("productId", productId);
-        data.put("value", quantity); // Store quantity as a string
+        data.put("value", quantity);
+        data.put("fullName", fullName);
+        data.put("address", address);
+
 
         // Add the data to Firestore
         db.collection("quantities").document().set(data)
@@ -107,7 +116,7 @@ public class ShowProduct extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             // Log for debugging
-                            Log.d("ShowProduct", "Quantity sent to Firestore: " + quantity);
+                            Log.d("ShowProduct", "Quantity sent to Firestore: " + quantity + ", " + fullName + ", " + address);
                         } else {
                             // Log for debugging
                             Log.e("ShowProduct", "Error sending quantity to Firestore", task.getException());

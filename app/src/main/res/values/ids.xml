@@ -21,4 +21,6 @@
     <item name="checkoutButton" type="id" />
     <item name="removeButton" type="id" />
     <item name="otherViewsIfNeeded" type="id" />
+    <item name="fullNameEditText" type="id" />
+    <item name="addressEditText" type="id" />
 </resources>
