@@ -18,6 +18,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class SeeAppointmentActivity extends AppCompatActivity {
 
     private TextView quantityTextView;
+    private TextView addressTextView;
+    private TextView fullnameTextView;
+    private String address = ""; // Declare at class level
+    private String fullname = ""; // Declare at class level
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,10 @@ public class SeeAppointmentActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        // Initialize quantityTextView
+        // Initialize TextViews
         quantityTextView = findViewById(R.id.quantityTextView);
+        addressTextView = findViewById(R.id.addressTextView);
+        fullnameTextView = findViewById(R.id.fullnameTextView);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("quantities").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -55,11 +61,16 @@ public class SeeAppointmentActivity extends AppCompatActivity {
                                 || documentChange.getType() == DocumentChange.Type.MODIFIED) {
 
                             String productId = documentChange.getDocument().getString("productId");
-                            // Check for null before trying to retrieve the String
                             String value = documentChange.getDocument().getString("value");
+                            address = documentChange.getDocument().getString("address");
+                            fullname = documentChange.getDocument().getString("fullname");
 
                             if (value != null) {
-                                quantitiesText.append("Product ID: ").append(productId).append(", Quantity: ").append(value).append("\n");
+                                quantitiesText.append("Product ID: ").append(productId)
+                                        .append(", Quantity: ").append(value)
+                                        .append(", Address: ").append(address)
+                                        .append(", Fullname: ").append(fullname != null ? fullname : "N/A")
+                                        .append("\n");
                             }
                         }
                     }
@@ -68,6 +79,8 @@ public class SeeAppointmentActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         Log.d("SeeAppointmentActivity", "Inside runOnUiThread");
                         quantityTextView.setText(quantitiesText.toString());
+                        addressTextView.setText("Address: " + address);
+                        fullnameTextView.setText("Fullname: " + fullname);
                         Log.d("SeeAppointmentActivity", "Quantities updated: " + quantitiesText.toString());
                     });
                 } else {
