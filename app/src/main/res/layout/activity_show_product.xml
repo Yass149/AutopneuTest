@@ -25,20 +25,19 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextMessage"
+        android:id="@+id/quantityEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/descriptionTextView1"
         android:layout_marginTop="16dp"
-        android:hint="Entrez la quantité et le nom du pneu"
-        android:inputType="text"
-        android:padding="16dp" />
+        android:hint="Quantité"
+        android:inputType="textLongMessage" />
 
     <EditText
         android:id="@+id/fullNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextMessage"
+        android:layout_below="@+id/quantityEditText"
         android:layout_marginTop="16dp"
         android:hint="Nom du destinataire"
         android:inputType="textPersonName" />
@@ -62,7 +61,7 @@
         android:text="envoyer la commande" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/backButton1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sendToAdminButton"
