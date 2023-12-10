@@ -27,9 +27,6 @@
             android:name=".ui.home.SearchForTiresActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CartItem"
-            android:exported="false" />
-        <activity
             android:name=".SeeScheduleActivity"
             android:exported="false" />
         <activity

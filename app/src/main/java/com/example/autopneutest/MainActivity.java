@@ -16,7 +16,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.autopneutest.databinding.ActivityMainBinding;
-import com.example.autopneutest.ui.CartItem;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -106,10 +105,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-    }
-    public void cart(View view) {
-
-        startActivity(new Intent(MainActivity.this, CartItem.class));
     }
     @Override
     public boolean onSupportNavigateUp() {
