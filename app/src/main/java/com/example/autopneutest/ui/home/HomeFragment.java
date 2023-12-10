@@ -21,7 +21,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ImageView imageViewToAnotherPage = view.findViewById(R.id.imageViewToAnotherPage);
-        ImageView imageViewToMyCart = view.findViewById(R.id.imageViewToMyCart);
         ImageView imageView3 = view.findViewById(R.id.imageView3);
 
 
@@ -33,12 +32,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        imageViewToMyCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handleCartIconClick();
-            }
-        });
 
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AutopneuTest</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -36,6 +36,7 @@
     <string name="se_connecter_en_tant_qu_admin">Se connecter en tant qu\'Admin</string>
     <string name="bienvenue_sur_la_page_d_acceuil">Bienvenue Sur La Page d\'Acceuil</string>
     <string name="rendez_vous">Rendez-vous</string>
+    <string name="commandes" tools:ignore="ExtraTranslation">Commandes</string>
     <string name="calendrier">Calendrier</string>
     <string name="d_ja_inscrit">Déja inscrit ?</string>
     <string name="catalogue">Catalogue</string>
@@ -62,5 +63,6 @@
     <string name="product_name">Product Name</string>
     <string name="product_namee">Product Name</string>
     <string name="d_client">Demandes des clients</string>
+
 
 </resources>

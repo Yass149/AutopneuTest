@@ -27,7 +27,7 @@ public class MyCartFragment extends Fragment {
     }
 
     private void initializeRecyclerView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewCart);
+        RecyclerView recyclerView = view.findViewById(R.id.scrollView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Initialize your cartItems (retrieve from wherever you store them)

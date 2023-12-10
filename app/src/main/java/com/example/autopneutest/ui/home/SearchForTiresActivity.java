@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -18,9 +17,8 @@ import com.example.autopneutest.R;
 
 public class SearchForTiresActivity extends AppCompatActivity {
 
-    Button btnRechercher;
-    Button btnFiltrer;
-
+    Button rechercherButton;
+    Button filtrerButton;
 
     String[] item = {"Mercedes-Benz", "BMW", "Dacia"};
     String[] seconditem = {"C300", "E350", "M4", "X1", "Logan", "Sandero"};
@@ -42,9 +40,6 @@ public class SearchForTiresActivity extends AppCompatActivity {
     ArrayAdapter<String> hauteurAdapterItems;
     ArrayAdapter<String> diametreAdapterItems;
 
-    Button rechercherButton;
-    Button filtrerButton;
-
     TextView filterText;
     TextView ouText;
     TextView filterTailleText;
@@ -54,8 +49,8 @@ public class SearchForTiresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_for_tires);
 
-        btnRechercher = findViewById(R.id.rechercherButton);
-        btnFiltrer = findViewById(R.id.filtrerButton);
+        rechercherButton = findViewById(R.id.rechercherButton);
+        filtrerButton = findViewById(R.id.filtrerButton);
 
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         secondAutoCompleteTextView = findViewById(R.id.second_auto_complete_txt);
@@ -116,9 +111,6 @@ public class SearchForTiresActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        rechercherButton = findViewById(R.id.rechercherButton);
-        filtrerButton = findViewById(R.id.filtrerButton);
-
         filterText = findViewById(R.id.filterText);
         ouText = findViewById(R.id.ouText);
         filterTailleText = findViewById(R.id.filterTailleText);
@@ -137,9 +129,6 @@ public class SearchForTiresActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        filtrerButton = findViewById(R.id.filtrerButton);
 
         filtrerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,15 +221,13 @@ public class SearchForTiresActivity extends AppCompatActivity {
             imageName = "p235_55_r17";
         } else if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R16")) {
             imageName = "p235_65_r16";
-        }else if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R17")) {
+        } else if (selectedLargeurItem.equals("235") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R17")) {
             imageName = "p235_65_r17";
-        }else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R16")) {
+        } else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("65") && selectedDiametreItem.equals("R16")) {
             imageName = "p195_65_r16";
-        }else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("55") && selectedDiametreItem.equals("R16")) {
+        } else if (selectedLargeurItem.equals("195") && selectedHauteurItem.equals("55") && selectedDiametreItem.equals("R16")) {
             imageName = "p195_55_r16";
         }
         return imageName;
     }
-
-
 }
