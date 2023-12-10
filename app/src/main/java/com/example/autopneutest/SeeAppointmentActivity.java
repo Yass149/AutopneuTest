@@ -21,7 +21,7 @@ public class SeeAppointmentActivity extends AppCompatActivity {
     private TextView addressTextView;
     private TextView fullnameTextView;
     private String address = ""; // Declare at class level
-    private String fullname = ""; // Declare at class level
+    private String fullName = ""; // Declare at class level
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class SeeAppointmentActivity extends AppCompatActivity {
                 if (querySnapshot != null) {
                     StringBuilder quantitiesText = new StringBuilder();
 
+                    // Inside the loop where you retrieve data
                     for (DocumentChange documentChange : querySnapshot.getDocumentChanges()) {
                         if (documentChange.getType() == DocumentChange.Type.ADDED
                                 || documentChange.getType() == DocumentChange.Type.MODIFIED) {
@@ -63,24 +64,48 @@ public class SeeAppointmentActivity extends AppCompatActivity {
                             String productId = documentChange.getDocument().getString("productId");
                             String value = documentChange.getDocument().getString("value");
                             address = documentChange.getDocument().getString("address");
-                            fullname = documentChange.getDocument().getString("fullname");
+                            fullName = documentChange.getDocument().getString("fullName");
 
+                            Log.d("SeeAppointmentActivity", "ProductId: " + productId +
+                                    ", Value: " + value +
+                                    ", Address: " + address +
+                                    ", FullName: " + fullName);
+                            Log.d("SeeAppointmentActivity", "Document ID: " + documentChange.getDocument().getId() +
+                                    ", ProductId: " + productId +
+                                    ", Value: " + value +
+                                    ", Address: " + address +
+                                    ", Fullname before: " + fullName);
+
+                            fullName = documentChange.getDocument().getString("fullName");
+
+                            Log.d("SeeAppointmentActivity", "FullName after: " + fullName);
+
+
+                            // Inside the loop where you process Firestore changes
                             if (value != null) {
                                 quantitiesText.append("Product ID: ").append(productId)
                                         .append(", Quantity: ").append(value)
                                         .append(", Address: ").append(address)
-                                        .append(", Fullname: ").append(fullname != null ? fullname : "N/A")
+                                        .append(", FullName: ").append(fullName)
                                         .append("\n");
+
+                                // Log the fullname before UI update
+                                Log.d("SeeAppointmentActivity", "FullName before UI update: " + fullName);
+
+
                             }
+
                         }
                     }
+
+
 
                     // Update UI on the main thread
                     runOnUiThread(() -> {
                         Log.d("SeeAppointmentActivity", "Inside runOnUiThread");
                         quantityTextView.setText(quantitiesText.toString());
                         addressTextView.setText("Address: " + address);
-                        fullnameTextView.setText("Fullname: " + fullname);
+                        fullnameTextView.setText("Fullname: " + fullName);
                         Log.d("SeeAppointmentActivity", "Quantities updated: " + quantitiesText.toString());
                     });
                 } else {
