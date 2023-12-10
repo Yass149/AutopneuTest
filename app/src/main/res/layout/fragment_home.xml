@@ -56,6 +56,36 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp" />
 
+        <ImageView
+            android:id="@+id/imageViewToMyCart"
+            android:layout_width="155dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="MyCartFragment"
+            android:src="@drawable/baseline_shopping_cart_24"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintStart_toEndOf="@+id/imageViewToAnotherPage"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textViewBelowIcon1"
+            android:layout_width="103dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/mon_panier"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewToMyCart"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewToMyCart"
+            app:layout_constraintHorizontal_bias="0.711"
+            app:layout_constraintStart_toStartOf="@+id/imageViewToMyCart"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewToMyCart"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="DuplicateIds,MissingConstraints" />
 
         <TextView
             android:id="@+id/textViewBelowImage3"
@@ -75,15 +105,14 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="320dp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="handleThirdImageClick"
             android:src="@drawable/partenaire"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.873"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewToMyCart"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView

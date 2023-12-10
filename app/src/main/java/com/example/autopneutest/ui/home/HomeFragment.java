@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ImageView imageViewToAnotherPage = view.findViewById(R.id.imageViewToAnotherPage);
-
+        ImageView imageViewToMyCart = view.findViewById(R.id.imageViewToMyCart);
         ImageView imageView3 = view.findViewById(R.id.imageView3);
 
 
@@ -33,7 +33,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
+        imageViewToMyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleCartIconClick();
+            }
+        });
 
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,13 +62,11 @@ public class HomeFragment extends Fragment {
                 .navigate(R.id.action_home_to_catalog);
     }
 
-    private void handleAppointmentsButtonClick() {
-        // Handle the click for the appointments button
+    private void handleCartIconClick() {
+        // Handle the click for the shopping cart icon
         NavHostFragment.findNavController(this)
-                .navigate(R.id.nav_view_appointments);
+                .navigate(R.id.nav_my_cart);
     }
 
 
-    public void appointementfragment(View view) {
-    }
 }

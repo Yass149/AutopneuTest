@@ -53,7 +53,7 @@
         android:inputType="textPostalAddress" />
 
     <Button
-        android:id="@+id/sendButton"
+        android:id="@+id/sendToAdminButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addressEditText"
@@ -65,7 +65,7 @@
         android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sendButton"
+        android:layout_below="@+id/sendToAdminButton"
         android:layout_marginTop="16dp"
         android:text="Back" />
 
