@@ -13,10 +13,7 @@
             android:icon="@drawable/partenaire"
             android:title="@string/nos_partenaires" />
 
-        <item
-            android:id="@+id/nav_my_cart"
-            android:icon="@drawable/baseline_shopping_cart_24"
-            android:title="@string/mon_panier" />
+
 
     </group>
 </menu>

@@ -16,7 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.autopneutest.databinding.ActivityMainBinding;
-import com.example.autopneutest.ui.CartItem;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_catalog, R.id.nav_my_cart)
+                R.id.nav_home, R.id.nav_catalog)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -107,10 +107,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    public void cart(View view) {
 
-        startActivity(new Intent(MainActivity.this, CartItem.class));
-    }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

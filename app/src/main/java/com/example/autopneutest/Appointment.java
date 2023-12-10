@@ -83,4 +83,5 @@ public class Appointment {
     public String toString() {
         return "Client Name: " + clientName + "\nOrder Date: " + orderDate + "\nAddress: " + address;
     }
+
 }

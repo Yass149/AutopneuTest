@@ -23,4 +23,5 @@
     <item name="otherViewsIfNeeded" type="id" />
     <item name="fullNameEditText" type="id" />
     <item name="addressEditText" type="id" />
+    <item name="nav_view_appointments" type="id" />
 </resources>
